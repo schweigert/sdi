@@ -9,23 +9,23 @@ public class MulticastSender {
     DatagramPacket outPacket = null;
     byte[] outBuf;
     final int PORT = 8888;
- 
+
     try {
       socket = new DatagramSocket();
       long counter = 0;
       String msg;
- 
+
       while (true) {
         msg = "This is multicast! " + counter;
         counter++;
         outBuf = msg.getBytes();
- 
+
         //Send to multicast IP address and port
-        InetAddress address = InetAddress.getByName("224.2.2.3");
-        outPacket = new DatagramPacket(outBuf, outBuf.length, address, PORT);
- 
+        InetAddress address = InetAddress.getByName("224.2.2.5");
+        outPacket = new DatagramPacket(outBuf, outBuf.length, address, 4021);
+
         socket.send(outPacket);
- 
+
         System.out.println("Server sends : " + msg);
         try {
           Thread.sleep(500);

@@ -11,10 +11,10 @@ public class MulticastReceiver {
     byte[] inBuf = new byte[256];
     try {
       //Prepare to join multicast group
-      socket = new MulticastSocket(8888);
-      InetAddress address = InetAddress.getByName("224.2.2.3");
+      socket = new MulticastSocket(4021);
+      InetAddress address = InetAddress.getByName("224.2.2.5");
       socket.joinGroup(address);
- 
+
       while (true) {
         inPacket = new DatagramPacket(inBuf, inBuf.length);
         socket.receive(inPacket);

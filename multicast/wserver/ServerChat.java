@@ -7,16 +7,33 @@ public class ServerChat {
 
       // Socket e buffers
       DatagramSocket serverSocket = new DatagramSocket(3030);
-      byte[] receiveData = new byte[1024];
+      byte[] receiveData = null;
       byte[] sendData = new byte[1024];
+
+      DatagramPacket outPacket = null;
+
+      DatagramSocket serverMulticast = new DatagramSocket();
+
 
       while(true) {
         // Recebe as bagaça e printa na tela
+        receiveData = new byte[1024];
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
         serverSocket.receive(receivePacket);
-        String sentence = new String(receivePacket.getData());
-        System.out.println(sentence);
+        String msg = new String(receivePacket.getData());
+        System.out.println(msg);
+
+        // Envio em Multicast
+        byte[] out = msg.getBytes();
+
+        InetAddress address = InetAddress.getByName("224.2.2.5");
+        outPacket = new DatagramPacket(out, out.length, address, 4021);
+
+        serverMulticast.send(outPacket);
+
       }
 
     }
+
+
 }
