@@ -20,7 +20,7 @@ public class ClientChat  implements Runnable {
         new Thread(new ClientChat()).start();
 
         while(true){
-          System.out.println("Msg: ");
+          System.out.println(username + " >> ");
           String sentence = username + ":" + inFromUser.readLine();
           sendData = sentence.getBytes();
 
@@ -45,7 +45,10 @@ public class ClientChat  implements Runnable {
           inPacket = new DatagramPacket(inBuf, inBuf.length);
           socket.receive(inPacket);
           String msg = new String(inBuf, 0, inPacket.getLength());
-          System.out.println("From " + inPacket.getAddress() + " Msg : " + msg);
+          String[] parts = msg.split(":");
+          if(parts[0].equals(username))
+            continue;
+          System.out.println(parts[0]+" >> " + parts[1]);
         }
       } catch (IOException ioe) {
         System.out.println(ioe);
