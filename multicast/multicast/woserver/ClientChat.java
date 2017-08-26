@@ -7,11 +7,16 @@ public class ClientChat  implements Runnable {
     static String username = null;
 
     public static void main(String args[]) throws Exception {
+
+
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         DatagramSocket clientSocket = new DatagramSocket();
-        InetAddress IPAddress = InetAddress.getByName("sdi01");
+        InetAddress IPAddress = InetAddress.getByName("localhost");
         byte[] sendData = new byte[1024];
         byte[] receiveData = new byte[1024];
+
+        DatagramSocket serverMulticast = new DatagramSocket();
+        DatagramPacket outPacket = null;
 
 
         System.out.println("Username: ");
@@ -24,8 +29,11 @@ public class ClientChat  implements Runnable {
           String sentence = username + ":" + inFromUser.readLine();
           sendData = sentence.getBytes();
 
-          DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 3030);
-          clientSocket.send(sendPacket);
+          InetAddress address = InetAddress.getByName("224.2.2.5");
+          outPacket = new DatagramPacket(sendData, sendData.length, address, 4021);
+
+          serverMulticast.send(outPacket);
+
         }
     }
 
@@ -36,7 +44,6 @@ public class ClientChat  implements Runnable {
       DatagramPacket inPacket = null;
       byte[] inBuf = new byte[256];
       try {
-        //Prepare to join multicast group
         socket = new MulticastSocket(4021);
         InetAddress address = InetAddress.getByName("224.2.2.5");
         socket.joinGroup(address);
