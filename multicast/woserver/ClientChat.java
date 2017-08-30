@@ -11,7 +11,7 @@ public class ClientChat  implements Runnable {
 
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         DatagramSocket clientSocket = new DatagramSocket();
-        InetAddress IPAddress = InetAddress.getByName("localhost");
+        InetAddress IPAddress = InetAddress.getByName("224.2.2.5");
         byte[] sendData = new byte[1024];
         byte[] receiveData = new byte[1024];
 

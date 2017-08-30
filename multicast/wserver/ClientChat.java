@@ -9,7 +9,7 @@ public class ClientChat  implements Runnable {
     public static void main(String args[]) throws Exception {
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         DatagramSocket clientSocket = new DatagramSocket();
-        InetAddress IPAddress = InetAddress.getByName("sdi01");
+        InetAddress IPAddress = InetAddress.getByName("192.168.6.21");
         byte[] sendData = new byte[1024];
         byte[] receiveData = new byte[1024];
 
