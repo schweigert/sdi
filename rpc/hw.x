@@ -1,3 +1,6 @@
+const MAXLEN = 2048;
+typedef Mensagem {string<MAXLEN>};
+
 program HELLO_WOLRD_PROG {
 	version HELLO_WORLD_VERS {
 	

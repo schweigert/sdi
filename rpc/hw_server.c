@@ -33,6 +33,6 @@ void* putchat_1_svc(char** sms, struct svc_req* req){
 	
 	int i;
 	for(i = 0; txt[i] != "\0"; i++){
-		
+		chat_msgs[chat_nmsgs][i] = txt[i];
 	}
 }
