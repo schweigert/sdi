@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 
-#define CHAR_RPC_PROG 0x30000824
+#define CHAT_RPC_PROG 0x30000824
 #define CHAT_RPC_VERS 1
 
 #if defined(__STDC__) || defined(__cplusplus)
@@ -27,7 +27,7 @@ extern  char ** getchat_1_svc(int *, struct svc_req *);
 #define PUTCHAT 3
 extern  void * putchat_1(char **, CLIENT *);
 extern  void * putchat_1_svc(char **, struct svc_req *);
-extern int char_rpc_prog_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern int chat_rpc_prog_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define HW 1
@@ -39,7 +39,7 @@ extern  char ** getchat_1_svc();
 #define PUTCHAT 3
 extern  void * putchat_1();
 extern  void * putchat_1_svc();
-extern int char_rpc_prog_1_freeresult ();
+extern int chat_rpc_prog_1_freeresult ();
 #endif /* K&R C */
 
 #ifdef __cplusplus

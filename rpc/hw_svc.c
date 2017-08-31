@@ -17,7 +17,7 @@
 #endif
 
 static void
-char_rpc_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
+chat_rpc_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
 		int getchat_1_arg;
@@ -75,15 +75,15 @@ main (int argc, char **argv)
 {
 	register SVCXPRT *transp;
 
-	pmap_unset (CHAR_RPC_PROG, CHAT_RPC_VERS);
+	pmap_unset (CHAT_RPC_PROG, CHAT_RPC_VERS);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
 		fprintf (stderr, "%s", "cannot create udp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, CHAR_RPC_PROG, CHAT_RPC_VERS, char_rpc_prog_1, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (CHAR_RPC_PROG, CHAT_RPC_VERS, udp).");
+	if (!svc_register(transp, CHAT_RPC_PROG, CHAT_RPC_VERS, chat_rpc_prog_1, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (CHAT_RPC_PROG, CHAT_RPC_VERS, udp).");
 		exit(1);
 	}
 
@@ -92,8 +92,8 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "cannot create tcp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, CHAR_RPC_PROG, CHAT_RPC_VERS, char_rpc_prog_1, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (CHAR_RPC_PROG, CHAT_RPC_VERS, tcp).");
+	if (!svc_register(transp, CHAT_RPC_PROG, CHAT_RPC_VERS, chat_rpc_prog_1, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (CHAT_RPC_PROG, CHAT_RPC_VERS, tcp).");
 		exit(1);
 	}
 

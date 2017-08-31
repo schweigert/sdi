@@ -16,16 +16,17 @@ int main (int argc, char *argv[]) {
 		exit(1);
 	}
 
-	cl = clnt_create(argv[1], HELLO_WOLRD_PROG, HELLO_WORLD_VERS, "tcp");
+	cl = clnt_create(argv[1], CHAT_RPC_PROG, CHAT_RPC_VERS, "tcp");
 	if (cl == NULL) {
 		clnt_pcreateerror(argv[1]);
 		exit(1);
 	}
 	
+	char* mensagem = malloc(sizeof(char)*64);
+
 	while(1){
-		char mensagem[63];
 		scanf("%s", mensagem);
-		p = putchat_1((char**)&mensagem, cl);
+		p = putchat_1(&mensagem, cl);
 	}
 	
 
