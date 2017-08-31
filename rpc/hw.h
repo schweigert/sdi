@@ -24,6 +24,9 @@ extern  char ** hw_1_svc(void *, struct svc_req *);
 #define GETCHAT 2
 extern  char ** getchat_1(int *, CLIENT *);
 extern  char ** getchat_1_svc(int *, struct svc_req *);
+#define PUTCHAT 3
+extern  void * putchat_1(char **, CLIENT *);
+extern  void * putchat_1_svc(char **, struct svc_req *);
 extern int hello_wolrd_prog_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
@@ -33,6 +36,9 @@ extern  char ** hw_1_svc();
 #define GETCHAT 2
 extern  char ** getchat_1();
 extern  char ** getchat_1_svc();
+#define PUTCHAT 3
+extern  void * putchat_1();
+extern  void * putchat_1_svc();
 extern int hello_wolrd_prog_1_freeresult ();
 #endif /* K&R C */
 

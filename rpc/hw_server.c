@@ -20,6 +20,12 @@ char** hw_1_svc(void* a, struct svc_req* req) {
 	return(&p);
 }
 
+
+
 char** getchat_1_svc(int* position, struct svc_req* req) {
+	return NULL;
+}
+
+void* putchat_1_svc(char** sms, struct svc_req* req){
 	return NULL;
 }

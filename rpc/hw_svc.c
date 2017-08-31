@@ -21,6 +21,7 @@ hello_wolrd_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
 		int getchat_1_arg;
+		char *putchat_1_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -41,6 +42,12 @@ hello_wolrd_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		_xdr_argument = (xdrproc_t) xdr_int;
 		_xdr_result = (xdrproc_t) xdr_wrapstring;
 		local = (char *(*)(char *, struct svc_req *)) getchat_1_svc;
+		break;
+
+	case PUTCHAT:
+		_xdr_argument = (xdrproc_t) xdr_wrapstring;
+		_xdr_result = (xdrproc_t) xdr_void;
+		local = (char *(*)(char *, struct svc_req *)) putchat_1_svc;
 		break;
 
 	default:
