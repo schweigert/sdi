@@ -1,5 +1,5 @@
-program HELLO_WOLRD_PROG {
-	version HELLO_WORLD_VERS {
+program CHAT_RPC_PROG {
+	version CHAT_RPC_VERS {
 	
 		string HW(void) = 1;
 		string GETCHAT(int) = 2;

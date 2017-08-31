@@ -20,6 +20,9 @@ char** hw_1_svc(void* a, struct svc_req* req) {
 	return(&p);
 }
 
+
+
+
 char chat_msgs[1000][64];
 int chat_nmsgs = 0;
 
