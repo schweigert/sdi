@@ -20,6 +20,8 @@ char** hw_1_svc(void* a, struct svc_req* req) {
 	return(&p);
 }
 
+char chat_msgs[1000][64];
+int chat_nmsgs = 0;
 
 
 char** getchat_1_svc(int* position, struct svc_req* req) {
@@ -27,5 +29,10 @@ char** getchat_1_svc(int* position, struct svc_req* req) {
 }
 
 void* putchat_1_svc(char** sms, struct svc_req* req){
-	return NULL;
+	char* txt = *sms;
+	
+	int i;
+	for(i = 0; txt[i] != "\0"; i++){
+		
+	}
 }
