@@ -21,9 +21,13 @@ int main (int argc, char *argv[]) {
 		clnt_pcreateerror(argv[1]);
 		exit(1);
 	}
-
-	printf("Getting ready to call hello world\n");
-	p = hw_1(NULL, cl);
+	
+	while(1){
+		char mensagem[63];
+		scanf("%s", mensagem);
+		p = putchat_1((char**)&mensagem, cl);
+	}
+	
 
 	printf("Back from hello world\n");
 	if (p == NULL) {
