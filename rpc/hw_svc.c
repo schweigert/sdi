@@ -20,7 +20,6 @@ static void
 chat_rpc_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		int getchat_1_arg;
 		char *putchat_1_arg;
 	} argument;
 	char *result;
@@ -39,7 +38,7 @@ chat_rpc_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		break;
 
 	case GETCHAT:
-		_xdr_argument = (xdrproc_t) xdr_int;
+		_xdr_argument = (xdrproc_t) xdr_void;
 		_xdr_result = (xdrproc_t) xdr_wrapstring;
 		local = (char *(*)(char *, struct svc_req *)) getchat_1_svc;
 		break;

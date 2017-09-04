@@ -22,8 +22,8 @@ extern "C" {
 extern  char ** hw_1(void *, CLIENT *);
 extern  char ** hw_1_svc(void *, struct svc_req *);
 #define GETCHAT 2
-extern  char ** getchat_1(int *, CLIENT *);
-extern  char ** getchat_1_svc(int *, struct svc_req *);
+extern  char ** getchat_1(void *, CLIENT *);
+extern  char ** getchat_1_svc(void *, struct svc_req *);
 #define PUTCHAT 3
 extern  void * putchat_1(char **, CLIENT *);
 extern  void * putchat_1_svc(char **, struct svc_req *);
