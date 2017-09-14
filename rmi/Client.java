@@ -3,6 +3,12 @@ import java.rmi.registry.*;
 import java.util.Scanner;
 
 public class Client {
+
+   public static void clearScreen() {  
+    System.out.print("\033[H\033[2J");  
+    System.out.flush();  
+   } 
+
    public static void main(String[] args) {
       String host = (args.length < 1) ? null : args[0];
       try {
@@ -14,13 +20,13 @@ public class Client {
 
          System.out.println("Username:");
          String username = sc.nextLine();
-
+	 clearScreen();
          while(true){
-
+	   System.out.print(username + ": ");
            String msg = sc.nextLine();
            stub.put(username, msg);
            String[] msgs = stub.get();
-
+	   clearScreen();
            for(int i =0; i < 10000; i++){
 
              if(msgs[i] == null){
