@@ -11,4 +11,10 @@ public interface ChatServer {
 
 	@WebMethod
 	String sayHello(String name);
+
+	@WebMethod
+	void   putMsg(String txt, String usr);
+
+	@WebMethod
+	String[] getMsg();
 }
