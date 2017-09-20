@@ -9,3 +9,6 @@ srv: all
 
 cli: all
 	java chat.ChatClient
+
+clir: all
+	ruby chat.rb
