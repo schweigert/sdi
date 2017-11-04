@@ -19,6 +19,13 @@ public class FrontEnd extends Thread {
 			
 			
 			BackEnd.add_request(request);
+			
+			while(true){
+				if(request.solved){
+					System.out.println("Solution is: "+request.solution);
+					break;
+				}
+			}
 
 		}
 	}

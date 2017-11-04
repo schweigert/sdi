@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
@@ -6,6 +7,9 @@ public class Request {
 	static Scanner s = new Scanner(System.in);
 	
 	private int[] data;
+	
+	boolean solved = false;
+	int solution = 0;
 	
 	public Request() {}
 	
@@ -37,4 +41,10 @@ public class Request {
 			data = null;
 		}
 	}
+	
+	public void solve(int s){
+		solution = s;
+		solved = true;
+	}
+	
 }
