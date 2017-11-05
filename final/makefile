@@ -2,7 +2,7 @@ all:
 	javac *.java
 
 tests: all
-	java Tests
+	java Tests < in_test
 
 run: all
-	java App
+	java App < in
