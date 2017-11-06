@@ -1,32 +1,7 @@
-class BackEnd extends Service {
+class BackEnd extends RequestService {
 
   Request request;
   BackEnd restore;
-
-  private static Request[] requests = new Request[300];
-
-  public static void push_request(Request r) {
-    while(true){
-      for(int i = 0; i < requests.length; i++) {
-        if(requests[i] == null) {
-          requests[i] = r;
-          return;
-        }
-      }
-    }
-  }
-
-  public static Request pop_request() {
-    while(true){
-      for(int i = 0; i < requests.length; i++) {
-        if(requests[i] != null) {
-          Request r = requests[i];
-          requests[i] = null;
-          return r;
-        }
-      }
-    }
-  }
 
   public BackEnd(){
     restore = null;
@@ -51,13 +26,17 @@ class BackEnd extends Service {
     int r1 = solver_1.solution();
     int r2 = solver_2.solution();
 
+    print("[BACKEND] Solution 1: "+r1);
+    print("[BACKEND] Solution 2: "+r2);
 
     if(r1 != r2){
       push_request(request);
       stop();
     }
 
-    print("[BACKEND] Solution: "+request.data.length);
+    request.solve(r1);
+
+    FrontEnd.push_request(request);
 
     request = null;
   }

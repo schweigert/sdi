@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
+
 class Solver extends Service {
 
   Request request;
@@ -8,9 +13,14 @@ class Solver extends Service {
   }
 
   public void service() {
+    List list = new Stack();
 
-    number = 3;
+    for(int i = 0; i < request.data.length; i++){
+      list.add(request.data[i]);
+    }
 
+    AbstractBinPacking packing = new FirstFitDecreasing(list, 10);
+    number = packing.getResult();
     stop();
   }
 

@@ -1,4 +1,4 @@
-class FrontEnd extends Service {
+class FrontEnd extends RequestService {
 
   FrontEnd restore;
 

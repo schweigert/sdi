@@ -13,6 +13,10 @@ class Request {
     data = numbers();
   }
 
+  public void solve(int n){
+    solution = n;
+  }
+
   // Private:
 
   private int[] numbers() {
