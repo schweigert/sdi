@@ -39,7 +39,7 @@ class Request {
     try {
       request_line = scanner.next();
       String[] r = request_line.split(",");
-      System.out.println("[FRONTEND] NEW REQUEST: "+request_line);
+      if(!Test.is_test_app) System.out.println("[FRONTEND] NEW REQUEST: "+request_line);
       return r;
     } catch(Exception e) {
       return new String[0];
