@@ -8,5 +8,8 @@ public class App {
     back.start();
     front.start();
     health.start();
+
+    FrontEndPrinter printer = new FrontEndPrinter();
+    printer.start();
   }
 }

@@ -2,7 +2,7 @@ import java.util.concurrent.Semaphore;
 
 class Service extends Thread {
 
-  public void print(String s){
+  public static void print(String s){
     if(Tests.is_test_app) return;
     System.out.println(s);
   }

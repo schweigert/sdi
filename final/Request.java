@@ -6,6 +6,9 @@ class Request {
   int[] data;
   int solution;
 
+  String request_line;
+
+  Solver solver1, solver2;
 
   public Request () {}
 
@@ -34,9 +37,9 @@ class Request {
 
   private String[] line() {
     try {
-      String l = scanner.next();
-      String[] r = l.split(",");
-      System.out.println("[FRONTEND] NEW REQUEST: "+l);
+      request_line = scanner.next();
+      String[] r = request_line.split(",");
+      System.out.println("[FRONTEND] NEW REQUEST: "+request_line);
       return r;
     } catch(Exception e) {
       return new String[0];

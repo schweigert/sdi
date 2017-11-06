@@ -18,8 +18,9 @@ class Solver extends Service {
     for(int i = 0; i < request.data.length; i++){
       list.add(request.data[i]);
     }
-
-    AbstractBinPacking packing = new FirstFitDecreasing(list, 10);
+    AbstractBinPacking packing;
+    if(Config.bruteforce) packing = new BinPackingBruteforce(list, 10);
+    else packing = new FirstFitDecreasing(list, 10);
     number = packing.getResult();
     stop();
   }

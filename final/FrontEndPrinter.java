@@ -1,9 +1,15 @@
 class FrontEndPrinter extends Service {
 
   public void service() {
-    Request request = FrontEnd.pop_request();
     String str = "[FRONTEND] Request:\n";
+    Request request = FrontEnd.pop_request();
 
+    str = str+"------\n";
+    str = str+"\t"+request.request_line+"\n";
+    str = str+"\tSolution: "+request.solution+"\n";
+    str = str+"------\n";
+
+    print(str);
   }
 
 }
