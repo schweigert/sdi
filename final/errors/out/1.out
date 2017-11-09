@@ -1,0 +1,114 @@
+[FRONTEND] NEW REQUEST: 7,6
+[FRONTEND] NEW REQUEST: 1,7
+[FRONTEND] NEW REQUEST: 6,8
+[FRONTEND] NEW REQUEST: 7,10
+[FRONTEND] NEW REQUEST: 3,2
+[FRONTEND] NEW REQUEST: 10,8
+[FRONTEND] NEW REQUEST: 8,10
+[FRONTEND] NEW REQUEST: 4,11
+[FRONTEND] NEW REQUEST: 3,1
+[FRONTEND] NEW REQUEST: 9,2
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[HEALTH] RESTORE BACKEND
+[FRONTEND] Request:
+------
+	7,6
+	Solution: 2
+	Time Running: 0 ms
+------
+
+[RECOVERY BACKEND TIME] 18 ms
+[BACKEND] Solution 1: 1
+[BACKEND] Solution 2: 1
+[HEALTH] RESTORE BACKEND
+[FRONTEND] Request:
+------
+	1,7
+	Solution: 1
+	Time Running: 0 ms
+------
+
+[RECOVERY BACKEND TIME] 17 ms
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[FRONTEND] Request:
+------
+	6,8
+	Solution: 2
+	Time Running: 1 ms
+------
+
+[HEALTH] RESTORE BACKEND
+[RECOVERY BACKEND TIME] 24 ms
+[HEALTH] RESTORE BACKEND
+[RECOVERY BACKEND TIME] 11 ms
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[FRONTEND] Request:
+------
+	7,10
+	Solution: 2
+	Time Running: 0 ms
+------
+
+[BACKEND] Solution 1: 1
+[BACKEND] Solution 2: 1
+[FRONTEND] Request:
+------
+	3,2
+	Solution: 1
+	Time Running: 0 ms
+------
+
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[FRONTEND] Request:
+------
+	10,8
+	Solution: 2
+	Time Running: 0 ms
+------
+
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[HEALTH] RESTORE BACKEND
+[RECOVERY BACKEND TIME] 7 ms
+[FRONTEND] Request:
+------
+	8,10
+	Solution: 2
+	Time Running: 1 ms
+------
+
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[HEALTH] RESTORE BACKEND
+[FRONTEND] Request:
+------
+	4,11
+	Solution: 2
+	Time Running: 1 ms
+------
+
+[RECOVERY BACKEND TIME] 7 ms
+[BACKEND] Solution 1: 1
+[BACKEND] Solution 2: 1
+[FRONTEND] Request:
+------
+	3,1
+	Solution: 1
+	Time Running: 0 ms
+------
+
+[BACKEND] Solution 1: 2
+[BACKEND] Solution 2: 2
+[HEALTH] RESTORE BACKEND
+[FRONTEND] Request:
+------
+	9,2
+	Solution: 2
+	Time Running: 0 ms
+------
+
+[RECOVERY BACKEND TIME] 4 ms
