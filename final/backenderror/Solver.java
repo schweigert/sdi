@@ -3,6 +3,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+import java.io.*;
+
 class Solver extends Service {
   Request request;
   int number;
@@ -31,13 +33,23 @@ class Solver extends Service {
       number++;
     }
 
-    request.total_time = end_time_running - init_time_running;
-
+    request.total_time += end_time_running - init_time_running;
+    solution_time_in_file(end_time_running - init_time_running);
     stop();
   }
 
   public int solution() {
     wait_death();
     return number;
+  }
+
+  private void solution_time_in_file(long recovery_time) {
+    try {
+      PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("solution_time.txt", true)));
+      out.println(recovery_time);
+      out.close();
+    } catch (Exception e) {
+      stop();
+    }
   }
 }

@@ -1,3 +1,4 @@
+import java.io.*;
 class FrontEnd extends Service {
 
   FrontEnd restore;
@@ -14,8 +15,8 @@ class FrontEnd extends Service {
   }
 
   public void service() {
-    recovery_time();
     deep_copy();
+    recovery_time();
 
     // #TODO #ERROR
     if (Config.frontend_error) {
@@ -36,16 +37,27 @@ class FrontEnd extends Service {
   private void deep_copy() {
     if(restore != null) {
       this.request = restore.request;
-
-      this.restore = null;
     }
   }
 
   private void recovery_time() {
-    if(restore != null) {
+    if(restore != null){
       time = get_time();
       error_time = restore.time;
-      print("[RECOVERY FRONTEND TIME] "+(time-error_time)+" ms");
+      long recovery_time = time-error_time;
+      print("[RECOVERY FRONTEND TIME] "+(recovery_time)+" ms");
+      recovery_time_in_file(recovery_time);
+      this.restore = null;
+    }
+  }
+
+  private void recovery_time_in_file(long recovery_time) {
+    try {
+      PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("frontend.txt", true)));
+      out.println(recovery_time);
+      out.close();
+    } catch (Exception e) {
+      stop();
     }
   }
 
