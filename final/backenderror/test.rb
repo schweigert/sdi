@@ -1,14 +1,18 @@
+require_relative "test_config"
+
+r = Random.new(TestConfig::RANDOM_SEED)
+
 system "make"
 system "make clear_test"
-10.times do |j|
+TestConfig::TESTS.times do |j|
   puts j
   str = ""
-  10.times do |n|
+  TestConfig::LINES.times do |n|
 
     a = []
 
-    6.times do
-      a << "#{rand(10) + 1}"
+    TestConfig::NUMBERS_PER_LINE.times do
+      a << "#{r.rand(10) + 1}"
     end
 
     str += a.join ","
