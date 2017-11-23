@@ -11,5 +11,8 @@ public class App {
 
     FrontEndPrinter printer = new FrontEndPrinter();
     printer.start();
+
+    Killer killer = new Killer(health);
+    killer.start();
   }
 }

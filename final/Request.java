@@ -7,6 +7,7 @@ class Request {
   int solution;
 
   String request_line;
+  long total_time;
 
   Solver solver1, solver2;
 
