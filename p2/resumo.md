@@ -87,3 +87,56 @@
       - Permanente
       - Priozisáveis
       - Transitórias
+
+# Coordenação e Acordos
+
+- Exclusão mútua distribuída
+  - Região crítica | Mutex
+  - Resolve através de comunicação de passagens de mensagens
+- Protocolo para executar uma região crítica:
+  - Enter
+  - Resouce Accesses
+  - Exit
+- Requisitos básicos:
+  - Segurança: Um processo por vez
+  - subsistência: as requisições para entrar e sair da seção crítica tem sucesso
+  - Ordenação: Considera o time do protocolo, e não a ordem dos pacotes
+  - Algoritmo de exclusão mútua:
+    - Servidor Central
+      - Servidor centralizado que gerenciará os tokens
+      - Pede Token
+      - Consede Token
+      - Devolve Token
+    - Baseado em Anel
+      - Vai passando um token para outra pessoa na roda
+      - Se eu não desejo o token, passo para frente
+      - Se eu desejo, eu aguardo receber o token
+    - Multicast e relógios lógicos
+      - Pede autorização e aguarda a resposta de todos
+      - Lamport
+      - Estado:
+        - RELEASED
+        - WANTED
+        - HELD
+    - Votação de Maekawa
+      - Divite os processos em subconjuntos, desde cada subconjunto tenha 1 e somente 1 que seja par desses outros conjuntos
+      - Cada processo só vota uma vez
+      - Para ser imparcial cada conjunto de processos tem um conjunto votante de mesmo tamanho
+      - um processo convoca uma eleição e interessados nessa sessão crítica participam juntos
+      - Um só sai vitorioso, executando a sessão critica
+    - Eleição baseada em Anel
+      - Todos os processos são marcados como não-participantes;
+      - Um processo qualquer inicia o processo de votação alterando seu processo como participante
+      - esse processo gera uma mensagem de eleição enviado para seu vizinho do Anel
+      - Quando um processo recebe a mensagem eleição: Compara o ID da mensagem com o seu ID
+        - Se for menor, ele encaminha para o seu vizinho, se o seu ID for maior, ele altera o seu estado de participante e substitui
+        - o ID da mensagem e repassa
+      - Algoritmo de eleição Valentão (Bully)
+        - O algoritmo de anel não é tolerante a falhas
+        - O Bully considera que o sistema é síncrono
+      - Problema dos generais bizantinos (TCC)
+        - Generais cercam uma cidade
+        - Comunicação através de menssageiros
+        - existem generais que são traidores
+        - generais só vencem se todos atacarem ao mesmo tempo
+        - Se 2/3 + 1 dos generais processos forem leais(não falharem) existe uma solução para o problema.
