@@ -1,0 +1,89 @@
+# Sistemas de Arquivos Distribuídos
+
+  - permitir acesso igual ao sistemas de arquivo local de forma remota
+  - problemas de sistemas de arquivos de armazenamento remotos:
+    - balanceamento de carga
+    - confiabilidade
+    - disponibilidade
+    - segurança
+  - requisitos:
+    - transparência
+    - atualização concorrente de Arquivos
+    - replicação de arquivos
+    - heterogeneidade de hardware e sistema operacional
+    - tolerância a falhas
+    - consistência (Atraso nas propagações feitas)
+    - segurança
+    - eficiência
+  - exemplos:
+    - NFS (Network File System)
+    - AFS (Andrew File System)
+  - arquitetura de serviço de arquivos:
+    - Serviço de arquivos plano: preocupa com a implementação sobre o conteúdo do arquivo
+    - Serviço de diretório: O serviço de diretório fornece um mapeamento entre nosmes textuais de arquivos.
+    - Módulo cliente: É executado nos computadores clientes para interagir com os demais sub sistemas.
+  - NFS:
+    - Usa RPC
+    - O protocolo NFS define um conjunto de funções
+    - o módulo servidor fica no núcleo do sistema de cada computador
+    - cria um sistema de arquivo virtual
+
+# Sistema de Arquivos Distribuídos na Nuvem
+  - Camadas da Nuvem
+    - Camada de Aplicação
+    - API
+    - Gerenciamento de serviços | Armazenamento Distribuído
+
+# Replicação
+  - Motivação
+    - Melhoria do Desempenho
+    - Maior disponibilidade
+    - Tolerância a falhas
+  - Modelo de Sistema:
+    - Requisição
+    - Coordenação
+    - Execução
+    - Acordo
+    - Resposta
+    - Replicação passiva:
+      - Tem escravos (Cópias idênticas)
+    - Replicação ativa:
+      - envia em broadcast para todos.
+      - o primeiro que responder, responde aos demais
+
+# Relógios
+  - Problemática: limitação da capacidade de cadastrar o tempo dos eventos em diferentes nós.
+  - Relógio de Hardware:
+    - Hi(t) = valor lido pelo sistema operacional
+  - Relógio de Software:
+    - Ci(t) = a*Hi(t) + B, onde o retorno é um long int correspondente a nanosegundos
+    - Skew: Diferença do tempo de dois relógios
+    - Drift: É a diferença no valor lido de um relógio e o valor de tempo fornecido por um relógio de referência perfeita
+  - Conceito de tempo
+    - Baseado no dia solar médio (ANTES PACAS)
+    - rotação da terra (1954)
+    - Relógio atômio (1967)
+  - Sincronização Externa: Limite externo de um grupo
+  - Sincronização Interna: Limite interno do meu grupo
+  - N relógios com limite ótimo: u(1-1/n)
+  - Algoritmo de Christian
+    - probabilistico
+    - a transmissão de dados deve ser pequeno comparado a precisão conhecida
+    - servidor global que será responsável pelo tempo
+    - tira o tempo com uma média do tempo de ida e volta
+    - tempo = Hi(t) + timeout(t)/2
+  - Algoritmo de Berkeley
+    - Define um dispositivo como mestre
+    - o mestre é responsável por obter o tempo dos relógios e calcular as médias desses relógios
+    - Repassa ajuste: envia a diferença da média com o restante dos clientes
+  - NTP: Serviço de controle de tempo na rede
+    - Tempo universal coordenado: UTC
+    - Clientes sincronizam seus relógios com uma fonte UTC.
+    - NTP utiliza UDP
+    - Baseado na topologia hierárquica (servidores redundantes)
+    - GPS: utiliza NTP
+    - Relógio Atômico: utiliza NTP
+    - Associações:
+      - Permanente
+      - Priozisáveis
+      - Transitórias
