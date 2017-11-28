@@ -161,3 +161,47 @@
         - existem generais que são traidores
         - generais só vencem se todos atacarem ao mesmo tempo
         - Se 2/3 + 1 dos generais processos forem leais(não falharem) existe uma solução para o problema.
+        - N <= 3f + 1, ,f : número de falhas, n é o numero de nós
+
+# Peer-to-Peer
+
+  - Garantia que cada usuário contribua para o sistema
+  - Todos os nós tem as mesmas capacidades e responsabilidades
+  - não existe nenhum agente centralizado
+  - um certo grau de anonimato
+  - depende de algoritmos eficientes para distribuição do dados e acesso aos dados;
+  - bons algoritmos equilibram a carga de trabalho e garantem a disponibilidade com o mínimo de sobrecarga
+    - O surgimento do p2p está fortemente ligado aos usuários comuns com banda larga
+  - Sobreposição de roteamento é o algoritmo distribuido que assume a responsabilidade de encontrar nós e objetos. Ele implementa um mecanismo de roteamento independente da camada da rede.
+    - Roteamento de requisições para objetos
+    - Inserção e remoção de objetos
+    - Adição e remoção de nós
+
+  - Sistema de Arquivos Ivy
+    - Ele simula um servidor NFS. Ivy amazena o estados dos arquivos como logs
+    - os registros dos logs são mantidos no serviço de armazenamento por uma função DHash (Distributed Hash Table)
+
+# Estudo de casos Google
+
+  - Buffers de protocolo estabelecem o formato de serialização de invocação remota.
+  - Publicar e assinar suporta disseminação efficiente de eventos.
+  - Chuby é o sistema de coordenação
+    - Características:
+      - Serviço de Armazenamento e Coordenação para infraestrutura
+      - Possúi exclusão mútua distribuída para exclusão mútua
+      - Sistemas de arquivos confiáveis para pequenos arquivos
+      - Dispôem serviço de suporte para eleição de réplicas
+      - Utilizado como DNS do Google
+  - Bigtable é o sistema de dados distribuídos
+    - Linhas: String
+    - Colunas: String
+    - Etiquetas: Int64
+  - MapReduce
+  - Sawzall é uma linguagem de para executar computação distribuída.
+    - Linguagem de Query.
+  - PubSubHubBub
+    - Publisher
+    - Hub
+    - Topic
+    - Hub
+    - Subscriber
