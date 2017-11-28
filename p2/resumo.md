@@ -88,6 +88,27 @@
       - Priozisáveis
       - Transitórias
 
+# Tempo lógico e estado global
+
+  - Sequencia de eventos pode ser ordenado, de ponde de vista de um único processo, pelo seu tempo do relógio lógico
+  - Sincronização baseada em relógio lógico não tem relação com tempo físico
+  - Lamport inventou um mecanismo de ordenação acontece antes (->) que permite modelar numericamente uma sequência de eventos pelo relógio lógico
+  - Timestamp: carimbo de tempo
+  - Estado global serve para coleta de lixo distribuída, detecção de dead-lock, detecção de término distribuído, depuração distribuída
+  - Estado global consistente é o estado onde podemos garantir consistência do sistema
+  - Corte consistente refere-se a um ponto onde podemos instanciar novamente o sistema de forma consistente
+  - Snapshot distribuído:
+    - Grava somente estados globais consistentes sem congelar o sistema;
+    - permite avaliar os predicados estáveis;
+    - Um corte é dito consistente se você separar estados de todos os membros de um sistema distribuído, onde esses sistemas estejam consistentes
+  - Exemplo inicial - Alg. Chandy-Lamport
+    - Mensagem com marcação é recebida, armazenada em disco e depois processada
+    - Utiliza a marcação como um estado consistente para reiniciar em caso de falha
+  - Hipóteses do algoritmo de snapshot distribuído:
+    - Não há falha dos canais de comunicação nem dos processos;
+    - Comunicação confiável, ou seja, toda mensagem enviada é recebia uma só uma e intacta;
+    - Canais são unidirecionais com entrega FIFO.
+
 # Coordenação e Acordos
 
 - Exclusão mútua distribuída
